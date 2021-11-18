@@ -28,15 +28,15 @@ def delete_all(kind_name):
 def main():
     datastore_client = datastore.Client()
 
-    total_items = 100
+    total_items = 10
     batch_size = 10
     kind = "TestObject"
     batch = []
 
     for x in range(total_items):    
-        name = "name+" + str(uuid.uuid4())
-        item = datastore.Entity(datastore_client.key(kind, name))
-        item["name"] = name
+        key = str(uuid.uuid4())
+        item = datastore.Entity(datastore_client.key(kind, key))
+        item["description"] = "desc+" + key
         item["timestamp"] = time.time()
         item["data"] = str(uuid.uuid4())
         batch.append(item)
@@ -50,5 +50,5 @@ def main():
 
     print(f"Inserted {total_items} entities into {kind}")
 
-delete_all("TestObject")
-#main()
+#delete_all("TestObject")
+main()
