@@ -13,6 +13,11 @@
 main()
 ```
 
+## Run code
+```
+> python main.py
+```
+
 ## Deactivate venv
 ```
 > deactivate
